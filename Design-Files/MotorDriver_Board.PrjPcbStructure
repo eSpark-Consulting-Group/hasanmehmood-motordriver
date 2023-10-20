@@ -1,4 +1,5 @@
-Record=TopLevelDocument|FileName=Connector Sheet.SchDoc|SheetNumber=4
-Record=NoMainPathDocument|SourceDocument=Connector Sheet.SchDoc|FileName=Controller Sheet.SchDoc|SheetNumber=3
-Record=NoMainPathDocument|SourceDocument=Connector Sheet.SchDoc|FileName=Peripheral Sheet.SchDoc|SheetNumber=2
-Record=NoMainPathDocument|SourceDocument=Connector Sheet.SchDoc|FileName=Power Sheet.SchDoc|SheetNumber=1
+Record=TopLevelDocument|FileName=Top Sheet.SchDoc|SheetNumber=1
+Record=SheetSymbol|SourceDocument=Top Sheet.SchDoc|Designator=U_Connector Sheet|SchDesignator=U_Connector Sheet|FileName=Connector Sheet.SchDoc|SheetNumber=5|SymbolType=Normal|RawFileName=Connector Sheet.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=Top Sheet.SchDoc|Designator=U_Controller Sheet|SchDesignator=U_Controller Sheet|FileName=Controller Sheet.SchDoc|SheetNumber=4|SymbolType=Normal|RawFileName=Controller Sheet.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=Top Sheet.SchDoc|Designator=U_Peripheral Sheet|SchDesignator=U_Peripheral Sheet|FileName=Peripheral Sheet.SchDoc|SheetNumber=3|SymbolType=Normal|RawFileName=Peripheral Sheet.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=Top Sheet.SchDoc|Designator=U_Power Sheet|SchDesignator=U_Power Sheet|FileName=Power Sheet.SchDoc|SheetNumber=2|SymbolType=Normal|RawFileName=Power Sheet.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
