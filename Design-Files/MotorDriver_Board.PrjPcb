@@ -83,6 +83,23 @@ GenerateClassCluster=0
 DocumentUniqueId=TIJWHINI
 
 [Document3]
+DocumentPath=MotorDriver_V1.0.PcbDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=WCKAWYOL
+
+[Document4]
 DocumentPath=Controller Sheet.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -98,23 +115,6 @@ ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=TVWTUJWN
-
-[Document4]
-DocumentPath=History\00000000144288E6\MotorDriver_V1.0.PcbDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=0
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=WCKAWYOL
 
 [Document5]
 DocumentPath=Connector Sheet.SchDoc
