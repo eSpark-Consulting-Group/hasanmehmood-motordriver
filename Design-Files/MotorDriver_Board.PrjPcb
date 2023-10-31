@@ -167,6 +167,10 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=DTCRORXE
 
+[GeneratedDocument1]
+DocumentPath=Project Outputs for MotorDriver_Board\Design Rule Check - MotorDriver_V1.html
+DItemRevisionGUID=
+
 [Configuration1]
 Name=Sources
 ParameterCount=0
