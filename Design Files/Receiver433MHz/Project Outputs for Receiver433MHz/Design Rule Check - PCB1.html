@@ -1,0 +1,524 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 9em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD23\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">05/12/2023</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">10:26:00 am</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:01</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc" class="file"><acronym title="D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc">D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">64</td></tr>
+</table>
+</td>
+</table><a name="IDBY5PAIEQOWPLKULBIIYS3YVEGMH5XLVRTTYDZJOWOEU2YTVZII4L"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDQ5E4J2R4DWBRFJAZXZMYWYVCVFGLQV3RFJR2SQNTLBSTNQEQDSZD">Clearance Constraint (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDGHQAQKUFNCI1BTF3WJXRJSH40HE4GP4PKD51XHEKAVIZ2VFAOPVG">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDZF4Z53GV3VYEKKA33OSHMJW2BGDEJAR5HV0D3PEONHAC3AY2SY1O">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDM1TMRAMLR4SBC3LDNZU0JCORMISQU010NB1OMBGLVIPHZUN1X1D">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDMTVZ2QKDJ4H2KMSQTGWCTGVCSHRYJGLSN0TDPEJNK2VFO5TSQDSO">Width Constraint (Min=0.254mm) (Max=0.508mm) (Preferred=0.381mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDLY0XWYVQ3SWXBM34OA5VG1TONMYWHXHEE14PBCFQL3YY4XD4PQBO">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDEVKJLGKXCTEIKFYSC221O3JCVJAE5L21CDQMNMNRQL4LX4LAW42O">Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDPRNGYSVP2JALPP1OE3A3FTYEFGOWAPWWVC0MQMBLPACOI3P4XKYG">Hole To Hole Clearance (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDXAZTLBSN2241C5OBXBP0IEYEMPOLWJOJC2GIP0MQEQPZ4W513KHM">Minimum Solder Mask Sliver (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">8</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDYJZJTNIYBWJRBP2G44ME4L3OON1K5RQNR23W3OGEKPIQFE3IGNR">Silk To Solder Mask (Clearance=0.254mm) (IsPad),(All)</a></td>
+<td class="column2">56</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID3TDGVTMVLVTHGDDYJQKSTYAOWCSVZAUIYFSZHMIGXPXXWVSK4B2B">Silk to Silk (Clearance=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDX3IKZXQFVS2LLDVQPRLDVXNRJJNGBERRT4HBJUCOQNM5C1YXBGTM">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAMB2KRDHW4FXFEN1GEJN0UOYLI51ULPVUUPVUQGKXJX0HSRGY45H">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">64</td>
+</tr>
+</table><br><a name="IDXAZTLBSN2241C5OBXBP0IEYEMPOLWJOJC2GIP0MQEQPZ4W513KHM"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Minimum Solder Mask Sliver (Gap=0.254mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2918.113mil|Location2.X=2929.363mil|Location1.Y=1966.816mil|Location2.Y=1978.066mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2918.113mil|Location2.X=2929.363mil|Location1.Y=1966.816mil|Location2.Y=1978.066mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.071mm &lt; 0.254mm) Between Pad C2-2(13.85mm,3.905mm) on Top Layer And Via (14.7mm,3.9mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.071mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2586.42mil|Location2.X=2597.67mil|Location1.Y=2037.028mil|Location2.Y=2048.278mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2586.42mil|Location2.X=2597.67mil|Location1.Y=2037.028mil|Location2.Y=2048.278mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.121mm &lt; 0.254mm) Between Pad C4-1(5.4mm,5.97mm) on Top Layer And Pad U1-2(6.65mm,6.135mm) on Top Layer [Top Solder] Mask Sliver [0.121mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2586.42mil|Location2.X=2597.67mil|Location1.Y=1999.946mil|Location2.Y=2011.196mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2586.42mil|Location2.X=2597.67mil|Location1.Y=1999.946mil|Location2.Y=2011.196mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.121mm &lt; 0.254mm) Between Pad C4-2(5.4mm,5.03mm) on Top Layer And Pad U1-3(6.65mm,4.865mm) on Top Layer [Top Solder] Mask Sliver [0.121mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2485.454mil|Location2.X=2496.704mil|Location1.Y=2082.958mil|Location2.Y=2094.208mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2485.454mil|Location2.X=2496.704mil|Location1.Y=2082.958mil|Location2.Y=2094.208mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.254mm) Between Pad L2-1(3.675mm,6.5mm) on Top Layer And Pad L2-2(3.675mm,7.2mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2501.265mil|Location2.X=2512.515mil|Location1.Y=2057.196mil|Location2.Y=2068.446mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2501.265mil|Location2.X=2512.515mil|Location1.Y=2057.196mil|Location2.Y=2068.446mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.006mm &lt; 0.254mm) Between Pad L2-1(3.675mm,6.5mm) on Top Layer And Via (3.675mm,5.791mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.006mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3321.147mil|Location2.X=3332.397mil|Location1.Y=2076.068mil|Location2.Y=2087.318mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3321.147mil|Location2.X=3332.397mil|Location1.Y=2076.068mil|Location2.Y=2087.318mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.047mm &lt; 0.254mm) Between Pad X1-2(26.75mm,5.8mm) on Top Layer And Via (24.5mm,7.1mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.047mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3407.761mil|Location2.X=3419.011mil|Location1.Y=2076.068mil|Location2.Y=2087.318mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3407.761mil|Location2.X=3419.011mil|Location1.Y=2076.068mil|Location2.Y=2087.318mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.047mm &lt; 0.254mm) Between Pad X1-2(26.75mm,5.8mm) on Top Layer And Via (26.7mm,7.1mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.047mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3494.375mil|Location2.X=3505.625mil|Location1.Y=2076.068mil|Location2.Y=2087.318mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3494.375mil|Location2.X=3505.625mil|Location1.Y=2076.068mil|Location2.Y=2087.318mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.047mm &lt; 0.254mm) Between Pad X1-2(26.75mm,5.8mm) on Top Layer And Via (28.9mm,7.1mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.047mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDYJZJTNIYBWJRBP2G44ME4L3OON1K5RQNR23W3OGEKPIQFE3IGNR"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk To Solder Mask (Clearance=0.254mm) (IsPad),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2646.32mil|Location2.X=2657.57mil|Location1.Y=2091.028mil|Location2.Y=2102.278mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2646.32mil|Location2.X=2657.57mil|Location1.Y=2091.028mil|Location2.Y=2102.278mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.119mm &lt; 0.254mm) Between Area Fill (7.419mm,6.973mm) (7.698mm,7.634mm) on Top Overlay And Pad U1-1(6.65mm,7.405mm) on Top Layer [Top Overlay] to [Top Solder] clearance [0.119mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2406.336mil|Location2.X=2417.586mil|Location1.Y=2091.127mil|Location2.Y=2102.377mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2406.336mil|Location2.X=2417.586mil|Location1.Y=2091.127mil|Location2.Y=2102.377mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.025mm &lt; 0.254mm) Between Pad C1-1(1.505mm,7.375mm) on Top Layer And Track (1.188mm,6.969mm)(1.188mm,7.781mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.025mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2406.836mil|Location2.X=2418.086mil|Location1.Y=2090.627mil|Location2.Y=2101.877mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2406.836mil|Location2.X=2418.086mil|Location1.Y=2090.627mil|Location2.Y=2101.877mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.025mm &lt; 0.254mm) Between Pad C1-1(1.505mm,7.375mm) on Top Layer And Track (1.188mm,6.969mm)(1.696mm,6.969mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.025mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2406.836mil|Location2.X=2418.086mil|Location1.Y=2116.627mil|Location2.Y=2127.877mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2406.836mil|Location2.X=2418.086mil|Location1.Y=2116.627mil|Location2.Y=2127.877mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.025mm &lt; 0.254mm) Between Pad C1-1(1.505mm,7.375mm) on Top Layer And Track (1.188mm,7.781mm)(1.696mm,7.781mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.025mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2461.836mil|Location2.X=2473.086mil|Location1.Y=2090.627mil|Location2.Y=2101.877mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2461.836mil|Location2.X=2473.086mil|Location1.Y=2090.627mil|Location2.Y=2101.877mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.025mm &lt; 0.254mm) Between Pad C1-2(2.445mm,7.375mm) on Top Layer And Track (2.254mm,6.969mm)(2.762mm,6.969mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.025mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2461.836mil|Location2.X=2473.086mil|Location1.Y=2116.627mil|Location2.Y=2127.877mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2461.836mil|Location2.X=2473.086mil|Location1.Y=2116.627mil|Location2.Y=2127.877mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.025mm &lt; 0.254mm) Between Pad C1-2(2.445mm,7.375mm) on Top Layer And Track (2.254mm,7.781mm)(2.762mm,7.781mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.025mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2462.336mil|Location2.X=2473.586mil|Location1.Y=2091.127mil|Location2.Y=2102.377mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2462.336mil|Location2.X=2473.586mil|Location1.Y=2091.127mil|Location2.Y=2102.377mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.025mm &lt; 0.254mm) Between Pad C1-2(2.445mm,7.375mm) on Top Layer And Track (2.762mm,6.969mm)(2.762mm,7.781mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.025mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2888.855mil|Location2.X=2900.105mil|Location1.Y=2013.017mil|Location2.Y=2024.267mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2888.855mil|Location2.X=2900.105mil|Location1.Y=2013.017mil|Location2.Y=2024.267mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.025mm &lt; 0.254mm) Between Pad C2-1(13.85mm,4.845mm) on Top Layer And Track (13.444mm,4.654mm)(13.444mm,5.162mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.025mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2889.355mil|Location2.X=2900.605mil|Location1.Y=2013.517mil|Location2.Y=2024.767mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2889.355mil|Location2.X=2900.605mil|Location1.Y=2013.517mil|Location2.Y=2024.767mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.025mm &lt; 0.254mm) Between Pad C2-1(13.85mm,4.845mm) on Top Layer And Track (13.444mm,5.162mm)(14.256mm,5.162mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.025mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2914.855mil|Location2.X=2926.105mil|Location1.Y=2013.017mil|Location2.Y=2024.267mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2914.855mil|Location2.X=2926.105mil|Location1.Y=2013.017mil|Location2.Y=2024.267mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.025mm &lt; 0.254mm) Between Pad C2-1(13.85mm,4.845mm) on Top Layer And Track (14.256mm,4.654mm)(14.256mm,5.162mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.025mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2888.855mil|Location2.X=2900.105mil|Location1.Y=1958.017mil|Location2.Y=1969.267mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2888.855mil|Location2.X=2900.105mil|Location1.Y=1958.017mil|Location2.Y=1969.267mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.025mm &lt; 0.254mm) Between Pad C2-2(13.85mm,3.905mm) on Top Layer And Track (13.444mm,3.588mm)(13.444mm,4.096mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.025mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2914.355mil|Location2.X=2925.605mil|Location1.Y=1957.517mil|Location2.Y=1968.767mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2914.355mil|Location2.X=2925.605mil|Location1.Y=1957.517mil|Location2.Y=1968.767mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.025mm &lt; 0.254mm) Between Pad C2-2(13.85mm,3.905mm) on Top Layer And Track (13.444mm,3.588mm)(14.256mm,3.588mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.025mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2914.855mil|Location2.X=2926.105mil|Location1.Y=1958.017mil|Location2.Y=1969.267mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2914.855mil|Location2.X=2926.105mil|Location1.Y=1958.017mil|Location2.Y=1969.267mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.025mm &lt; 0.254mm) Between Pad C2-2(13.85mm,3.905mm) on Top Layer And Track (14.256mm,3.588mm)(14.256mm,4.096mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.025mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2462.82mil|Location2.X=2474.07mil|Location1.Y=2020.745mil|Location2.Y=2031.995mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2462.82mil|Location2.X=2474.07mil|Location1.Y=2020.745mil|Location2.Y=2031.995mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.025mm &lt; 0.254mm) Between Pad C3-1(2.47mm,5.6mm) on Top Layer And Track (2.279mm,5.194mm)(2.787mm,5.194mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.025mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2462.82mil|Location2.X=2474.07mil|Location1.Y=2046.745mil|Location2.Y=2057.995mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2462.82mil|Location2.X=2474.07mil|Location1.Y=2046.745mil|Location2.Y=2057.995mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.025mm &lt; 0.254mm) Between Pad C3-1(2.47mm,5.6mm) on Top Layer And Track (2.279mm,6.006mm)(2.787mm,6.006mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.025mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2463.32mil|Location2.X=2474.57mil|Location1.Y=2021.245mil|Location2.Y=2032.495mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2463.32mil|Location2.X=2474.57mil|Location1.Y=2021.245mil|Location2.Y=2032.495mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.025mm &lt; 0.254mm) Between Pad C3-1(2.47mm,5.6mm) on Top Layer And Track (2.787mm,5.194mm)(2.787mm,6.006mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.025mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2407.32mil|Location2.X=2418.57mil|Location1.Y=2021.245mil|Location2.Y=2032.495mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2407.32mil|Location2.X=2418.57mil|Location1.Y=2021.245mil|Location2.Y=2032.495mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.025mm &lt; 0.254mm) Between Pad C3-2(1.53mm,5.6mm) on Top Layer And Track (1.213mm,5.194mm)(1.213mm,6.006mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.025mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2407.82mil|Location2.X=2419.07mil|Location1.Y=2020.745mil|Location2.Y=2031.995mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2407.82mil|Location2.X=2419.07mil|Location1.Y=2020.745mil|Location2.Y=2031.995mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.025mm &lt; 0.254mm) Between Pad C3-2(1.53mm,5.6mm) on Top Layer And Track (1.213mm,5.194mm)(1.721mm,5.194mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.025mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2407.82mil|Location2.X=2419.07mil|Location1.Y=2046.745mil|Location2.Y=2057.995mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2407.82mil|Location2.X=2419.07mil|Location1.Y=2046.745mil|Location2.Y=2057.995mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.025mm &lt; 0.254mm) Between Pad C3-2(1.53mm,5.6mm) on Top Layer And Track (1.213mm,6.006mm)(1.721mm,6.006mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.025mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2556.178mil|Location2.X=2567.428mil|Location1.Y=2057.308mil|Location2.Y=2068.558mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2556.178mil|Location2.X=2567.428mil|Location1.Y=2057.308mil|Location2.Y=2068.558mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.025mm &lt; 0.254mm) Between Pad C4-1(5.4mm,5.97mm) on Top Layer And Track (4.994mm,5.779mm)(4.994mm,6.287mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.025mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2556.678mil|Location2.X=2567.928mil|Location1.Y=2057.808mil|Location2.Y=2069.058mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2556.678mil|Location2.X=2567.928mil|Location1.Y=2057.808mil|Location2.Y=2069.058mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.025mm &lt; 0.254mm) Between Pad C4-1(5.4mm,5.97mm) on Top Layer And Track (4.994mm,6.287mm)(5.806mm,6.287mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.025mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2582.178mil|Location2.X=2593.428mil|Location1.Y=2057.308mil|Location2.Y=2068.558mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2582.178mil|Location2.X=2593.428mil|Location1.Y=2057.308mil|Location2.Y=2068.558mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.025mm &lt; 0.254mm) Between Pad C4-1(5.4mm,5.97mm) on Top Layer And Track (5.806mm,5.779mm)(5.806mm,6.287mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.025mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2556.178mil|Location2.X=2567.428mil|Location1.Y=2002.308mil|Location2.Y=2013.558mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2556.178mil|Location2.X=2567.428mil|Location1.Y=2002.308mil|Location2.Y=2013.558mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.025mm &lt; 0.254mm) Between Pad C4-2(5.4mm,5.03mm) on Top Layer And Track (4.994mm,4.713mm)(4.994mm,5.221mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.025mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2581.678mil|Location2.X=2592.928mil|Location1.Y=2001.808mil|Location2.Y=2013.058mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2581.678mil|Location2.X=2592.928mil|Location1.Y=2001.808mil|Location2.Y=2013.058mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.025mm &lt; 0.254mm) Between Pad C4-2(5.4mm,5.03mm) on Top Layer And Track (4.994mm,4.713mm)(5.806mm,4.713mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.025mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2582.178mil|Location2.X=2593.428mil|Location1.Y=2002.308mil|Location2.Y=2013.558mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2582.178mil|Location2.X=2593.428mil|Location1.Y=2002.308mil|Location2.Y=2013.558mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.025mm &lt; 0.254mm) Between Pad C4-2(5.4mm,5.03mm) on Top Layer And Track (5.806mm,4.713mm)(5.806mm,5.221mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.025mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2456.268mil|Location2.X=2467.518mil|Location1.Y=1951.836mil|Location2.Y=1965.478mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2456.268mil|Location2.X=2467.518mil|Location1.Y=1951.836mil|Location2.Y=1965.478mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.141mm &lt; 0.254mm) Between Pad L1-1(2.9mm,4mm) on Top Layer And Track (1.971mm,3.543mm)(2.403mm,3.543mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.141mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2456.268mil|Location2.X=2467.518mil|Location1.Y=1987.278mil|Location2.Y=2000.947mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2456.268mil|Location2.X=2467.518mil|Location1.Y=1987.278mil|Location2.Y=2000.947mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.141mm &lt; 0.254mm) Between Pad L1-1(2.9mm,4mm) on Top Layer And Track (1.971mm,4.457mm)(2.403mm,4.457mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.141mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2429.634mil|Location2.X=2440.884mil|Location1.Y=1954.275mil|Location2.Y=1967.828mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2429.634mil|Location2.X=2440.884mil|Location1.Y=1954.275mil|Location2.Y=1967.828mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.117mm &lt; 0.254mm) Between Pad L1-2(1.5mm,4mm) on Top Layer And Track (1.971mm,3.543mm)(2.403mm,3.543mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.117mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2429.634mil|Location2.X=2440.884mil|Location1.Y=1984.96mil|Location2.Y=1998.481mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2429.634mil|Location2.X=2440.884mil|Location1.Y=1984.96mil|Location2.Y=1998.481mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.117mm &lt; 0.254mm) Between Pad L1-2(1.5mm,4mm) on Top Layer And Track (1.971mm,4.457mm)(2.403mm,4.457mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.117mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2488.328mil|Location2.X=2499.578mil|Location1.Y=2061.304mil|Location2.Y=2072.554mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2488.328mil|Location2.X=2499.578mil|Location1.Y=2061.304mil|Location2.Y=2072.554mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.057mm &lt; 0.254mm) Between Pad L2-1(3.675mm,6.5mm) on Top Layer And Track (3.218mm,6.139mm)(3.218mm,6.545mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.057mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2513.076mil|Location2.X=2524.326mil|Location1.Y=2060.099mil|Location2.Y=2071.349mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2513.076mil|Location2.X=2524.326mil|Location1.Y=2060.099mil|Location2.Y=2071.349mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.061mm &lt; 0.254mm) Between Pad L2-1(3.675mm,6.5mm) on Top Layer And Track (3.218mm,6.139mm)(4.132mm,6.139mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.061mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2488.328mil|Location2.X=2499.578mil|Location1.Y=2077.052mil|Location2.Y=2088.302mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2488.328mil|Location2.X=2499.578mil|Location1.Y=2077.052mil|Location2.Y=2088.302mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.057mm &lt; 0.254mm) Between Pad L2-1(3.675mm,6.5mm) on Top Layer And Track (3.218mm,6.545mm)(3.218mm,7.561mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.057mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2514.202mil|Location2.X=2525.452mil|Location1.Y=2061.304mil|Location2.Y=2072.554mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2514.202mil|Location2.X=2525.452mil|Location1.Y=2061.304mil|Location2.Y=2072.554mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.057mm &lt; 0.254mm) Between Pad L2-1(3.675mm,6.5mm) on Top Layer And Track (4.132mm,6.139mm)(4.132mm,6.545mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.057mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2514.202mil|Location2.X=2525.452mil|Location1.Y=2077.052mil|Location2.Y=2088.302mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2514.202mil|Location2.X=2525.452mil|Location1.Y=2077.052mil|Location2.Y=2088.302mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.057mm &lt; 0.254mm) Between Pad L2-1(3.675mm,6.5mm) on Top Layer And Track (4.132mm,6.545mm)(4.132mm,7.561mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.057mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2488.328mil|Location2.X=2499.578mil|Location1.Y=2088.863mil|Location2.Y=2100.113mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2488.328mil|Location2.X=2499.578mil|Location1.Y=2088.863mil|Location2.Y=2100.113mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.057mm &lt; 0.254mm) Between Pad L2-2(3.675mm,7.2mm) on Top Layer And Track (3.218mm,6.545mm)(3.218mm,7.561mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.057mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2489.454mil|Location2.X=2500.704mil|Location1.Y=2105.816mil|Location2.Y=2117.066mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2489.454mil|Location2.X=2500.704mil|Location1.Y=2105.816mil|Location2.Y=2117.066mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.061mm &lt; 0.254mm) Between Pad L2-2(3.675mm,7.2mm) on Top Layer And Track (3.218mm,7.561mm)(4.132mm,7.561mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.061mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2514.202mil|Location2.X=2525.452mil|Location1.Y=2088.863mil|Location2.Y=2100.113mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2514.202mil|Location2.X=2525.452mil|Location1.Y=2088.863mil|Location2.Y=2100.113mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.057mm &lt; 0.254mm) Between Pad L2-2(3.675mm,7.2mm) on Top Layer And Track (4.132mm,6.545mm)(4.132mm,7.561mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.057mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2588.408mil|Location2.X=2599.658mil|Location1.Y=2099.808mil|Location2.Y=2111.058mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2588.408mil|Location2.X=2599.658mil|Location1.Y=2099.808mil|Location2.Y=2111.058mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.223mm &lt; 0.254mm) Between Pad U1-1(6.65mm,7.405mm) on Top Layer And Track (5.713mm,7.278mm)(5.713mm,7.532mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.223mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2590.908mil|Location2.X=2602.158mil|Location1.Y=2104.808mil|Location2.Y=2116.058mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2590.908mil|Location2.X=2602.158mil|Location1.Y=2104.808mil|Location2.Y=2116.058mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.096mm &lt; 0.254mm) Between Pad U1-1(6.65mm,7.405mm) on Top Layer And Track (5.713mm,7.278mm)(5.84mm,7.405mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.096mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2590.908mil|Location2.X=2602.158mil|Location1.Y=2104.808mil|Location2.Y=2116.058mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2590.908mil|Location2.X=2602.158mil|Location1.Y=2104.808mil|Location2.Y=2116.058mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.096mm &lt; 0.254mm) Between Pad U1-1(6.65mm,7.405mm) on Top Layer And Track (5.713mm,7.532mm)(5.84mm,7.405mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.096mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2644.605mil|Location2.X=2657.149mil|Location1.Y=2119.626mil|Location2.Y=2130.876mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2644.605mil|Location2.X=2657.149mil|Location1.Y=2119.626mil|Location2.Y=2130.876mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.062mm &lt; 0.254mm) Between Pad U1-1(6.65mm,7.405mm) on Top Layer And Track (7.364mm,7.862mm)(7.364mm,8.065mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.062mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2644.995mil|Location2.X=2656.245mil|Location1.Y=2123.474mil|Location2.Y=2134.724mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2644.995mil|Location2.X=2656.245mil|Location1.Y=2123.474mil|Location2.Y=2134.724mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.2535mm (9.9807mil) &lt; 0.254mm (10mil)) Between Pad U1-1(6.65mm,7.405mm) on Top Layer And Track (7.364mm,8.065mm)(11.428mm,8.065mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.254mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2590.239mil|Location2.X=2601.489mil|Location1.Y=2060.808mil|Location2.Y=2072.058mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2590.239mil|Location2.X=2601.489mil|Location1.Y=2060.808mil|Location2.Y=2072.058mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.13mm &lt; 0.254mm) Between Pad U1-2(6.65mm,6.135mm) on Top Layer And Track (4.994mm,6.287mm)(5.806mm,6.287mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.13mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2590.239mil|Location2.X=2601.489mil|Location1.Y=2041.028mil|Location2.Y=2052.278mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2590.239mil|Location2.X=2601.489mil|Location1.Y=2041.028mil|Location2.Y=2052.278mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.13mm &lt; 0.254mm) Between Pad U1-2(6.65mm,6.135mm) on Top Layer And Track (5.806mm,5.779mm)(5.806mm,6.287mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.13mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2590.239mil|Location2.X=2601.489mil|Location1.Y=1998.808mil|Location2.Y=2010.058mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2590.239mil|Location2.X=2601.489mil|Location1.Y=1998.808mil|Location2.Y=2010.058mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.13mm &lt; 0.254mm) Between Pad U1-3(6.65mm,4.865mm) on Top Layer And Track (4.994mm,4.713mm)(5.806mm,4.713mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.13mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2590.239mil|Location2.X=2601.489mil|Location1.Y=2018.588mil|Location2.Y=2029.838mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2590.239mil|Location2.X=2601.489mil|Location1.Y=2018.588mil|Location2.Y=2029.838mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.13mm &lt; 0.254mm) Between Pad U1-3(6.65mm,4.865mm) on Top Layer And Track (5.806mm,4.713mm)(5.806mm,5.221mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.13mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2644.995mil|Location2.X=2656.245mil|Location1.Y=1936.142mil|Location2.Y=1947.392mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2644.995mil|Location2.X=2656.245mil|Location1.Y=1936.142mil|Location2.Y=1947.392mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.2535mm (9.9808mil) &lt; 0.254mm (10mil)) Between Pad U1-4(6.65mm,3.595mm) on Top Layer And Track (7.364mm,2.935mm)(11.428mm,2.935mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.254mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2644.605mil|Location2.X=2657.097mil|Location1.Y=1939.99mil|Location2.Y=1951.24mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2644.605mil|Location2.X=2657.097mil|Location1.Y=1939.99mil|Location2.Y=1951.24mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.062mm &lt; 0.254mm) Between Pad U1-4(6.65mm,3.595mm) on Top Layer And Track (7.364mm,2.935mm)(7.364mm,3.138mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.062mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2808.62mil|Location2.X=2820.865mil|Location1.Y=1939.958mil|Location2.Y=1951.208mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2808.62mil|Location2.X=2820.865mil|Location1.Y=1939.958mil|Location2.Y=1951.208mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.065mm &lt; 0.254mm) Between Pad U1-5(12.15mm,3.595mm) on Top Layer And Track (11.428mm,2.935mm)(11.428mm,3.138mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.065mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2808.62mil|Location2.X=2820.809mil|Location1.Y=2119.658mil|Location2.Y=2130.908mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2808.62mil|Location2.X=2820.809mil|Location1.Y=2119.658mil|Location2.Y=2130.908mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.065mm &lt; 0.254mm) Between Pad U1-8(12.15mm,7.405mm) on Top Layer And Track (11.428mm,7.862mm)(11.428mm,8.065mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.065mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2997.407mil|Location2.X=3008.657mil|Location1.Y=2074.134mil|Location2.Y=2085.384mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2997.407mil|Location2.X=3008.657mil|Location1.Y=2074.134mil|Location2.Y=2085.384mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.152mm &lt; 0.254mm) Between Pad X1-1(18.25mm,5.8mm) on Top Layer And Track (16.15mm,6.892mm)(16.277mm,6.765mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.152mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2997.407mil|Location2.X=3008.657mil|Location1.Y=2074.134mil|Location2.Y=2085.384mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2997.407mil|Location2.X=3008.657mil|Location1.Y=2074.134mil|Location2.Y=2085.384mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.152mm &lt; 0.254mm) Between Pad X1-1(18.25mm,5.8mm) on Top Layer And Track (16.277mm,6.765mm)(16.404mm,6.892mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.152mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3014.448mil|Location2.X=3025.698mil|Location1.Y=2009.605mil|Location2.Y=2020.855mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3014.448mil|Location2.X=3025.698mil|Location1.Y=2009.605mil|Location2.Y=2020.855mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.126mm &lt; 0.254mm) Between Pad X1-1(18.25mm,5.8mm) on Top Layer And Track (16.71mm,3.385mm)(16.71mm,4.86mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.126mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3014.448mil|Location2.X=3025.698mil|Location1.Y=2073.633mil|Location2.Y=2084.883mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3014.448mil|Location2.X=3025.698mil|Location1.Y=2073.633mil|Location2.Y=2084.883mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.126mm &lt; 0.254mm) Between Pad X1-1(18.25mm,5.8mm) on Top Layer And Track (16.71mm,6.74mm)(16.71mm,8.215mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.126mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3470.365mil|Location2.X=3481.615mil|Location1.Y=2009.605mil|Location2.Y=2020.855mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3470.365mil|Location2.X=3481.615mil|Location1.Y=2009.605mil|Location2.Y=2020.855mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.126mm &lt; 0.254mm) Between Pad X1-2(26.75mm,5.8mm) on Top Layer And Track (28.29mm,3.385mm)(28.29mm,4.86mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.126mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3470.365mil|Location2.X=3481.615mil|Location1.Y=2073.633mil|Location2.Y=2084.883mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Altium Projects\MotorDriver_Project\Rx\Receiver433MHz\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3470.365mil|Location2.X=3481.615mil|Location1.Y=2073.633mil|Location2.Y=2084.883mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.126mm &lt; 0.254mm) Between Pad X1-2(26.75mm,5.8mm) on Top Layer And Track (28.29mm,6.74mm)(28.29mm,8.215mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.126mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>
