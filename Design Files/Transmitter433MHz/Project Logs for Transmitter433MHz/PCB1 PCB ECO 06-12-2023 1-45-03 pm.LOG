@@ -1,0 +1,14 @@
+Removed Pin From Net: NetName=3.3V Pin=J1-2
+Removed Pin From Net: NetName=GND Pin=J1-3
+Change Component Footprint: Designator=J1 Old Footprint=MY-2032-10-R New Footprint=MY-2032-02
+Change Component Comment : Designator=J1 Old Comment=MY-2032-10-R New Comment=MY-2032-02
+Change Component Designator: OldDesignator=X2 NewDesignator=X1
+Change component parameters: Designator = "J1" ("J1"); Footprint = "MY-2032-10-R"; UniqueID = "\CKWSNTAD" ("\CKWSNTAD")
+Change component parameters (AddParameter): Name = "ComponentLink1Description"; Value = "LCSC"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.lcsc.com/product-detail/Battery-Connectors_MYOUNG-MY-2032-02_C964822.html"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Item Type"; Value = "Battery Connector"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LCSC Part Number"; Value = "C964822"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "MYOUNG"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Part Number"; Value = "MY-2032-02"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "Plugin"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=J1-2

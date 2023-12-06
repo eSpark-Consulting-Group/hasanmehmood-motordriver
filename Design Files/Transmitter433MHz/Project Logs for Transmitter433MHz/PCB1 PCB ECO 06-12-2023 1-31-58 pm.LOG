@@ -1,0 +1,77 @@
+Removed Pin From Net: NetName=SW1 Pin=SW1-1
+Removed Pin From Net: NetName=SW_VDD Pin=SW1-2
+Removed Pin From Net: NetName=SW2 Pin=SW2-1
+Removed Pin From Net: NetName=SW_VDD Pin=SW2-2
+Removed Pin From Net: NetName=SW3 Pin=SW3-1
+Removed Pin From Net: NetName=SW_VDD Pin=SW3-2
+Removed Pin From Net: NetName=SW4 Pin=SW4-1
+Removed Pin From Net: NetName=SW_VDD Pin=SW4-2
+Removed Pin From Net: NetName=NetC1_1 Pin=X1-1
+Removed Pin From Net: NetName=NetC2_1 Pin=X1-2
+Removed Member From Class: ClassName=Sheet1 Member=SW1
+Removed Member From Class: ClassName=Sheet1 Member=SW2
+Removed Member From Class: ClassName=Sheet1 Member=SW3
+Removed Member From Class: ClassName=Sheet1 Member=SW4
+Added Component: Designator=J3(600-508S-160)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.lcsc.com/product-detail/Metal-span-style-background-color-ff0-Dome-span-Pot_HYP-Hongyuan-Precision-600-508S-160_C256262.html"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Item Type"; Value = "Metal Dome Pot"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LCSC Part Number"; Value = "C256262"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "HYP"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "600-508S-160"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "Custom"; VariantName = "[No Variations]"
+Added Component: Designator=J4(600-508S-160)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.lcsc.com/product-detail/Metal-span-style-background-color-ff0-Dome-span-Pot_HYP-Hongyuan-Precision-600-508S-160_C256262.html"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Item Type"; Value = "Metal Dome Pot"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LCSC Part Number"; Value = "C256262"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "HYP"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "600-508S-160"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "Custom"; VariantName = "[No Variations]"
+Added Component: Designator=J5(600-508S-160)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.lcsc.com/product-detail/Metal-span-style-background-color-ff0-Dome-span-Pot_HYP-Hongyuan-Precision-600-508S-160_C256262.html"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Item Type"; Value = "Metal Dome Pot"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LCSC Part Number"; Value = "C256262"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "HYP"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "600-508S-160"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "Custom"; VariantName = "[No Variations]"
+Added Component: Designator=J6(600-508S-160)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.lcsc.com/product-detail/Metal-span-style-background-color-ff0-Dome-span-Pot_HYP-Hongyuan-Precision-600-508S-160_C256262.html"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Item Type"; Value = "Metal Dome Pot"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LCSC Part Number"; Value = "C256262"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "HYP"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "600-508S-160"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "Custom"; VariantName = "[No Variations]"
+Added Component: Designator=X2(HC-49S-SMD-2P-Mini)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Item Type"; Value = "Crystal"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LCSC Part Number"; Value = "C2975362"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "SST"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "13.560M 20PF 10PPM"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "HC-49S-SMD-2P-Mini"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=SW1 Pin=J3-1
+Added Pin To Net: NetName=SW_VDD Pin=J3-2
+Added Pin To Net: NetName=SW_VDD Pin=J3-2
+Added Pin To Net: NetName=SW_VDD Pin=J3-2
+Added Pin To Net: NetName=SW2 Pin=J4-1
+Added Pin To Net: NetName=SW_VDD Pin=J4-2
+Added Pin To Net: NetName=SW_VDD Pin=J4-2
+Added Pin To Net: NetName=SW_VDD Pin=J4-2
+Added Pin To Net: NetName=SW3 Pin=J5-1
+Added Pin To Net: NetName=SW_VDD Pin=J5-2
+Added Pin To Net: NetName=SW_VDD Pin=J5-2
+Added Pin To Net: NetName=SW_VDD Pin=J5-2
+Added Pin To Net: NetName=SW4 Pin=J6-1
+Added Pin To Net: NetName=SW_VDD Pin=J6-2
+Added Pin To Net: NetName=SW_VDD Pin=J6-2
+Added Pin To Net: NetName=SW_VDD Pin=J6-2
+Added Pin To Net: NetName=NetC1_1 Pin=X2-1
+Added Pin To Net: NetName=NetC2_1 Pin=X2-2
+Added Member To Class: ClassName=Sheet1 Member=Component J3 600-508S-160
+Added Member To Class: ClassName=Sheet1 Member=Component J4 600-508S-160
+Added Member To Class: ClassName=Sheet1 Member=Component J5 600-508S-160
+Added Member To Class: ClassName=Sheet1 Member=Component J6 600-508S-160
+Added Member To Class: ClassName=Sheet1 Member=Component X2 13.56MHz
