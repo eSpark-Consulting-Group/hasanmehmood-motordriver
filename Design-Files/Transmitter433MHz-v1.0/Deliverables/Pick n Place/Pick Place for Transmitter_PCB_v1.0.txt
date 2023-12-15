@@ -1,0 +1,39 @@
+Altium Designer Pick and Place Locations
+C:\Users\XPENDER\Documents\GitHub\hasanmehmood-motordriver\Design-Files\Transmitter433MHz-v1.0\Project Outputs for Transmitter_v1.0\Pick Place for Transmitter_PCB_v1.0.txt
+
+========================================================================================================================
+File Design Information:
+
+Date:       15/12/23
+Time:       21:06
+Revision:   354e08189b3ebead32c802e49673202331fd5d7d
+Variant:    No variations
+Units used: mm
+
+Designator Layer       Center-X(mm) Center-Y(mm) Rotation Ref-X(mm) Ref-Y(mm) Pad-X(mm) Pad-Y(mm) 
+ANT1       TopLayer    1,2192mm     40,7416mm    90       1,2192mm  40,7416mm 1,2192mm  40,7416mm 
+C1         BottomLayer -0,7620mm    22,5679mm    90       -0,7620mm 22,5679mm -0,7620mm 22,0980mm 
+C2         BottomLayer 8,8646mm     22,5806mm    90       8,8646mm  22,5806mm 8,8646mm  22,1107mm 
+C3         BottomLayer 3,0599mm     30,2244mm    180      3,0599mm  30,2244mm 3,5298mm  30,2244mm 
+C4         BottomLayer 1,2226mm     27,3270mm    270      1,2226mm  27,3270mm 1,2226mm  27,7969mm 
+C5         BottomLayer 7,1392mm     24,9410mm    0        7,1392mm  24,9410mm 6,6693mm  24,9410mm 
+C7         BottomLayer 20,3432mm    24,1173mm    270      20,3432mm 24,1173mm 20,3432mm 24,5872mm 
+J1         BottomLayer 14,0669mm    9,0710mm     180      14,0669mm 9,0710mm  24,3669mm 9,0710mm  
+L1         BottomLayer 3,0726mm     28,1416mm    0        3,0726mm  28,1416mm 2,7226mm  28,1416mm 
+L2         BottomLayer -0,1778mm    26,8478mm    180      -0,1778mm 26,8478mm 0,1722mm  26,8478mm 
+L3         BottomLayer 1,2226mm     29,1516mm    270      1,2226mm  29,1516mm 1,2226mm  29,5016mm 
+LED1       TopLayer    13,8296mm    30,7086mm    0        13,8296mm 30,7086mm 13,0796mm 30,7086mm 
+R1         BottomLayer 3,0599mm     29,2338mm    180      3,0599mm  29,2338mm 3,5298mm  29,2338mm 
+R2         BottomLayer 7,1392mm     25,9062mm    0        7,1392mm  25,9062mm 6,6693mm  25,9062mm 
+R3         BottomLayer 7,1392mm     26,8714mm    0        7,1392mm  26,8714mm 6,6693mm  26,8714mm 
+R4         BottomLayer 20,3432mm    22,3393mm    270      20,3432mm 22,3393mm 20,3432mm 22,8092mm 
+R5         BottomLayer 13,9119mm    28,8342mm    180      13,9119mm 28,8342mm 14,3818mm 28,8342mm 
+R6         BottomLayer 20,1041mm    25,8064mm    180      20,1041mm 25,8064mm 20,5740mm 25,8064mm 
+R7         BottomLayer 13,7995mm    30,6917mm    0        13,7995mm 30,6917mm 13,3296mm 30,6917mm 
+SW1        TopLayer    14,0480mm    2,3822mm     180      14,0480mm 2,3822mm  15,7480mm 2,3822mm  
+SW2        TopLayer    14,0480mm    10,3916mm    180      14,0480mm 10,3916mm 15,7480mm 10,3916mm 
+SW3        TopLayer    14,0480mm    18,4010mm    180      14,0480mm 18,4010mm 15,7480mm 18,4010mm 
+SW4        TopLayer    14,0480mm    26,4104mm    180      14,0480mm 26,4104mm 15,7480mm 26,4104mm 
+U1         BottomLayer 4,0404mm     25,9062mm    0        4,0404mm  25,9062mm 2,7304mm  24,9562mm 
+U2         BottomLayer 24,7114mm    23,8988mm    0        24,7114mm 23,8988mm 21,9614mm 21,9938mm 
+X1         BottomLayer 4,0776mm     22,1096mm    0        4,0776mm  22,1096mm 1,6776mm  22,1096mm 

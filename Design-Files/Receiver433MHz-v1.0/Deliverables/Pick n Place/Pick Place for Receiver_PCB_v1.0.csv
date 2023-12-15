@@ -1,0 +1,23 @@
+Altium Designer Pick and Place Locations
+C:\Users\XPENDER\Documents\GitHub\hasanmehmood-motordriver\Design-Files\Receiver433MHz-v1.0\Project Outputs for Receiver_v1.0\Pick Place for Receiver_PCB_v1.0.csv
+
+========================================================================================================================
+File Design Information:
+
+Date:       15/12/23
+Time:       21:40
+Revision:   1589c185ade682958882d37c829107d276b7f89f
+Variant:    No variations
+Units used: mm
+
+"Designator","Layer","Center-X(mm)","Center-Y(mm)","Rotation","Ref-X(mm)","Ref-Y(mm)","Pad-X(mm)","Pad-Y(mm)"
+"C1","TopLayer","2,1020mm","9,6102mm","0","2,1020mm","9,6102mm","1,6321mm","9,6102mm"
+"C2","TopLayer","13,5382mm","7,5692mm","90","13,5382mm","7,5692mm","13,5382mm","7,0993mm"
+"C3","TopLayer","2,1020mm","7,9876mm","180","2,1020mm","7,9876mm","2,5719mm","7,9876mm"
+"C4","TopLayer","5,2984mm","7,7352mm","270","5,2984mm","7,7352mm","5,2984mm","8,2051mm"
+"J1","TopLayer","23,2664mm","4,2422mm","0","19,4564mm","4,2422mm","19,4564mm","4,2422mm"
+"J2","TopLayer","2,7686mm","4,2672mm","0","1,4986mm","4,2672mm","1,4986mm","4,2672mm"
+"L1","TopLayer","2,2000mm","6,2352mm","180","2,2000mm","6,2352mm","2,9000mm","6,2352mm"
+"L2","TopLayer","3,6750mm","8,9602mm","90","3,6750mm","8,9602mm","3,6750mm","8,6102mm"
+"U1","TopLayer","9,4000mm","7,7352mm","0","9,4000mm","7,7352mm","6,6500mm","9,6402mm"
+"X1","TopLayer","22,1484mm","8,0352mm","0","22,1484mm","8,0352mm","17,3984mm","8,0352mm"
